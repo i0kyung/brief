@@ -131,19 +131,17 @@
     <div class="course-flow">
       <span class="step">서울대 미대 전시</span>
       <span class="arrow">→</span>
-      <span class="step">샤로수빈티지</span>
+      <span class="step">샤로수길</span>
       <span class="arrow">→</span>
-      <span class="step">오후의과일 생과일 수플레</span>
-      <span class="arrow">→</span>
-      <span class="step">페르마타 라이브 음악</span>
+      <span class="step">페르마타</span>
     </div>
-    <div class="note">서울대학교 미술대학 전시를 관람하고, 도시 풍경과 실내 공간을 다룬 회화 작업의 배치와 캡션, 연작 구성을 기록했다. 이후 샤로수길의 24시간 빈티지샵 ‘샤로수빈티지’를 둘러보고, 카페 ‘오후의과일’에서 생과일 수플레 팬케이크를 먹었다. 저녁에는 라이브 음악 공간 ‘페르마타(Fermata)’에서 연어 크림 파스타 계열 메뉴와 함께 공연을 감상했다.</div>
+    <div class="note">서울대 미대 전시 및 샤로수길(페르마타) 탐방</div>
   </section>
 
   <section class="card">
     <div class="eyebrow">DAY 2 SUMMARY</div>
     <h2>DAY 2 · 성수 카페 작업 계획</h2>
-    <p class="sub">성수 디자인/카페 작업 및 대학원 준비 계획 정리<br>포유성수, 카페 작업, 짐 보관, 서울역 21:58 기차까지 고려한 귀가 계획</p>
+    <p class="sub">성수 디자인/카페 작업 및 대학원 준비 계획 정리</p>
     <div class="btn-group">
       <a class="btn btn-primary" href="./day2-seongsu.html">DAY 2 성수 계획 보기</a>
     </div>
@@ -277,7 +275,7 @@
   const MEMO_KEY = "snu_art_memo_v1";
   const memo = document.getElementById("memo");
   const state = document.getElementById("saveState");
-  memo.value = localStorage.getItem(MEMO_KEY) || "";
+  memo.value = localStorage.getItem(MEM_KEY) || "";
   let t;
   memo.addEventListener("input", () => {
     localStorage.setItem(MEMO_KEY, memo.value);
