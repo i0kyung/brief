@@ -50,16 +50,19 @@
   .route-flow .step{background:var(--surface-blue);color:var(--primary-strong);padding:8px 12px;border-radius:12px;}
   .route-flow .arrow{color:var(--text-light);font-weight:600;}
   .timeline{display:grid;gap:14px;margin-top:12px;}
-  .plan-card{background:var(--surface);border-radius:var(--radius-lg);box-shadow:var(--shadow-soft);padding:18px 17px;margin-bottom:18px;}
-  .timeline .plan-card{margin-bottom:0;}
   .plan-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px;}
   .time-label{flex-shrink:0;display:inline-block;font-size:12.5px;font-weight:700;color:var(--primary-strong);background:var(--primary-soft);padding:4px 10px;border-radius:8px;}
   .plan-meta{font-size:13.5px;color:var(--text-sub);margin:0 0 10px;}
   .points{list-style:none;padding:0;margin:5px 0 0;}
   .points li{font-size:13.5px;color:var(--text-main);padding:5px 0 5px 20px;position:relative;}
   .points li::before{content:"";position:absolute;left:2px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--primary);}
+  .budget-list{list-style:none;margin:8px 0 0;padding:0;}
+  .budget-list li{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;color:var(--text-main);padding:8px 0;border-top:1px solid var(--line);}
+  .budget-list li:first-child{border-top:none;}
+  .budget-list span:last-child{font-weight:700;text-align:right;}
   .key-card{background:linear-gradient(160deg,var(--primary-soft) 0%,#fff 100%);border:1px solid #D6E7FF;}
   .key-card p{font-size:14px;color:var(--text-main);font-weight:700;margin:0;}
+  .highlight{font-weight:800;color:var(--primary-strong);}
   .btn-group{display:flex;flex-direction:column;gap:9px;margin-top:14px;}
   .btn{min-height:48px;border-radius:13px;cursor:pointer;font-size:14.5px;font-weight:700;text-decoration:none;display:flex;align-items:center;justify-content:center;transition:transform .12s ease,filter .12s ease,background .12s ease;border:none;}
   .btn:active{transform:scale(.97);}
@@ -70,6 +73,8 @@
     .hero h1{font-size:23px;}
     .plan-head{display:block;}
     .time-label{margin-top:8px;}
+    .budget-list li{display:block;}
+    .budget-list span:last-child{display:block;text-align:left;margin-top:2px;}
   }
 </style>
 </head>
@@ -85,7 +90,7 @@
   <section class="card" id="yesterday-review">
     <div class="eyebrow">YESTERDAY REVIEW</div>
     <h2>어제 기록</h2>
-    <p class="sub">서울대학교 미술대학 전시 관람을 통한 디자인 프로젝트 보드/캡션 연구 → 샤로수길 '오후의과일' 방문 → 재즈바 '페르마타(Fermata)'에서 라이브 음악 감상</p>
+    <p class="sub">어제 기록: 서울대학교 미술대학 전시 관람을 통해 디자인 프로젝트 보드, 캡션, 리서치 구성 방식을 관찰했다. 이후 샤로수길 ‘오후의과일’을 방문하고, 재즈바 ‘페르마타(Fermata)’에서 라이브 음악을 감상하며 공간 경험까지 기록했다.</p>
   </section>
 
   <section class="card">
@@ -96,77 +101,118 @@
       <span class="step">짐 보관</span><span class="arrow">→</span>
       <span class="step">포유성수</span><span class="arrow">→</span>
       <span class="step">레필로소피</span><span class="arrow">→</span>
-      <span class="step">서울역</span>
+      <span class="step">서울역 21:58</span>
     </div>
   </section>
 
   <section id="today-plan">
     <div class="eyebrow">TODAY PLAN</div>
     <div class="timeline">
-      <article class="plan-card">
+      <article class="card">
         <div class="plan-head">
           <h3>성수역 도착 및 짐 보관</h3>
           <span class="time-label">13:40</span>
         </div>
-        <p class="plan-meta">성수역 내 물품보관함 이용. 비용은 약 3,000~4,000원.</p>
+        <ul class="points">
+          <li>성수역 도착 후 물품보관함 또는 짐 보관 서비스를 확인한다.</li>
+          <li>예상 비용: 약 3,000~4,000원</li>
+          <li>성수역 보관이 어렵다면 건대입구역 또는 서울역 보관을 대안으로 고려한다.</li>
+          <li>작은 가방에는 휴대폰, 지갑, 보조배터리, 이어폰, 기차표/신분증만 남긴다.</li>
+        </ul>
       </article>
 
-      <article class="plan-card">
+      <article class="card">
         <div class="plan-head">
           <h3>포유성수 방문 및 식사</h3>
           <span class="time-label">14:00</span>
         </div>
         <ul class="points">
-          <li>성수역에서 도보 약 5분</li>
+          <li>성수역에서 도보 약 5분 이동</li>
           <li>대표 메뉴: 쌀국수</li>
-          <li>식사 후 작업 카페로 이동</li>
+          <li>함께 먹어볼 메뉴: 푸딩 밀크티 또는 베트남식 음료</li>
+          <li>작업 전 식사와 에너지 충전 목적</li>
         </ul>
       </article>
 
-      <article class="plan-card">
+      <article class="card">
         <div class="plan-head">
-          <h3>카페 '레필로소피' 노트북 작업</h3>
-          <span class="time-label">15:00 ~ 18:00</span>
+          <h3>카페 레필로소피 노트북 작업</h3>
+          <span class="time-label">15:00 - 18:00</span>
+        </div>
+        <p class="plan-meta">대학원 준비 계획 정리, 어제 전시 인사이트 기록, 블로그 글 초안 작성.</p>
+        <ul class="points">
+          <li>오래 머무르기보다 2~3시간 집중 작업</li>
+          <li>서울대 전시 관람 기록</li>
+          <li>오후의과일/페르마타 방문 기록</li>
+          <li>이번 학기 회고</li>
+          <li>방학 할 일 5개</li>
+          <li>7월 첫째 주 실행 계획</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="plan-head">
+          <h3>성수·건대입구 자유 산책 및 힐링</h3>
+          <span class="time-label">18:00 - 20:30</span>
         </div>
         <ul class="points">
-          <li>대학원 준비 계획 정리</li>
-          <li>어제 전시 인사이트 기록</li>
-          <li>디자인 프로젝트 보드와 캡션 참고점 정리</li>
+          <li>성수 편집샵, 팝업, 소품샵, 서울숲 주변을 가볍게 둘러본다.</li>
+          <li>사람이 많거나 지치면 건대입구역 근처로 이동해 짧게 구경한다.</li>
+          <li>많이 돌아다니기보다 짐을 줄인 상태로 서울 마지막 시간을 가볍게 보내는 시간.</li>
         </ul>
       </article>
 
-      <article class="plan-card">
-        <div class="plan-head">
-          <h3>성수/건대입구 자유 산책 및 힐링</h3>
-          <span class="time-label">18:00 ~ 20:30</span>
-        </div>
-        <p class="plan-meta">작업 후 무리하지 않고 주변을 가볍게 둘러보며 저녁 전 여유 확보.</p>
-      </article>
-
-      <article class="plan-card">
+      <article class="card">
         <div class="plan-head">
           <h3>성수역 출발</h3>
           <span class="time-label">20:30</span>
         </div>
-        <p class="plan-meta">2호선 → 1호선 환승으로 서울역 이동.</p>
+        <ul class="points">
+          <li>맡긴 짐을 찾고 서울역 이동을 시작한다.</li>
+          <li>성수역에서 2호선 탑승 후 1호선으로 환승해 서울역으로 이동한다.</li>
+          <li><span class="highlight">20:30 이동 시작</span></li>
+        </ul>
       </article>
 
-      <article class="plan-card">
+      <article class="card">
         <div class="plan-head">
-          <h3>서울역 도착 및 기차 탑승 준비</h3>
+          <h3>서울역 도착 및 탑승 준비</h3>
           <span class="time-label">21:20</span>
         </div>
-        <p class="plan-meta">짐 찾기, 승강장 확인, 간단한 물/간식 준비.</p>
+        <ul class="points">
+          <li>서울역 도착 목표 시간</li>
+          <li>화장실, 물 구매, 플랫폼 확인까지 여유를 둔다.</li>
+          <li><span class="highlight">21:20 서울역 도착 목표</span></li>
+        </ul>
       </article>
 
-      <article class="plan-card key-card">
+      <article class="card key-card">
         <div class="plan-head">
           <h3>서울역 출발 기차 탑승</h3>
           <span class="time-label">21:58</span>
         </div>
-        <p>오늘의 목표는 전시에서 받은 인사이트를 대학원 준비 자료로 바꾸고, 이동 전까지 체력을 남기는 것.</p>
+        <p><span class="highlight">21:58 서울역 기차</span></p>
       </article>
     </div>
+  </section>
+
+  <section class="card">
+    <div class="eyebrow">BUDGET</div>
+    <h2>예상 예산</h2>
+    <ul class="budget-list">
+      <li><span>짐 보관</span><span>약 3,000~4,000원</span></li>
+      <li><span>포유성수 식사/음료</span><span>약 15,000~25,000원</span></li>
+      <li><span>카페 음료</span><span>약 5,000~8,000원</span></li>
+      <li><span>교통비</span><span>약 3,000~5,000원</span></li>
+      <li><span>예비비</span><span>약 5,000~10,000원</span></li>
+      <li><span>총예산</span><span>가볍게 30,000원대 / 보통 40,000~50,000원대</span></li>
+    </ul>
+  </section>
+
+  <section class="card key-card">
+    <div class="eyebrow">FOCUS</div>
+    <h2>오늘의 기준</h2>
+    <p>오늘은 더 많이 보는 날이 아니라, 어제 본 것을 내 것으로 만드는 날. 서울대 전시 기록을 대학원 준비 자료로 바꾸고, 노트북 작업 후에는 짐을 맡긴 뒤 가볍게 성수나 건대를 둘러본다. 20:30에는 서울역으로 이동을 시작하고, 21:58 기차를 여유 있게 탄다.</p>
   </section>
 
   <div class="btn-group">
