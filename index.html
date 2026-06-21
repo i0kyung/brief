@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>오늘의 서울대 미대 전시 루트 · 2026.06.20</title>
+<title>서울 전시 기록 & 성수 작업 계획</title>
 <style>
   :root{
     --primary:#007AFF;
@@ -34,7 +34,6 @@
     -webkit-font-smoothing:antialiased;
   }
 
-  /* 모바일 앱 미리보기처럼 중앙 정렬 */
   .app{
     max-width:520px;
     margin:0 auto;
@@ -42,7 +41,6 @@
     min-height:100vh;
   }
 
-  /* 히어로 */
   .hero{
     background:linear-gradient(160deg,var(--primary) 0%,var(--primary-strong) 100%);
     color:#fff;
@@ -78,7 +76,6 @@
   .btn-hero:hover{box-shadow:0 8px 18px rgba(0,0,0,.16);}
   .btn-hero:active{transform:scale(.97);}
 
-  /* 공통 카드 */
   .card{
     background:var(--surface);
     border-radius:var(--radius-xl);
@@ -93,7 +90,6 @@
   .card h2{font-size:19px;font-weight:800;margin:0 0 6px;letter-spacing:-.3px;}
   .card .sub{font-size:14px;color:var(--text-sub);margin:0;}
 
-  /* 코스 요약 */
   .course-flow{
     display:flex;align-items:center;flex-wrap:wrap;gap:8px;
     font-size:15px;font-weight:700;margin:14px 0 14px;
@@ -110,13 +106,11 @@
   }
   .note b{color:var(--primary-strong);}
 
-  /* 섹션 타이틀 */
   .section-title{
     font-size:14px;font-weight:800;color:var(--text-sub);
     letter-spacing:.3px;margin:30px 4px 14px;
   }
 
-  /* 타임라인 */
   .timeline{position:relative;padding-left:8px;}
   .tl-item{position:relative;padding:0 0 6px 28px;}
   .tl-item::before{
@@ -157,7 +151,38 @@
   }
   .rec span{font-size:12px;font-weight:600;color:var(--primary-strong);}
 
-  /* 버튼 그룹 */
+  .day2-intro{margin-top:28px;}
+  .plan-grid{display:grid;gap:14px;margin-top:16px;}
+  .plan-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    padding:17px 16px;
+  }
+  .plan-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px;}
+  .plan-head h3{font-size:16px;font-weight:800;margin:0;letter-spacing:-.2px;}
+  .plan-tag{
+    flex-shrink:0;font-size:12px;font-weight:700;color:var(--primary-strong);
+    background:var(--primary-soft);border-radius:8px;padding:4px 8px;
+  }
+  .plan-meta{font-size:13px;color:var(--text-sub);margin:0 0 10px;}
+  .route-line{
+    background:var(--surface-blue);border-radius:12px;color:var(--primary-strong);
+    font-size:13.5px;font-weight:700;line-height:1.55;padding:11px 12px;margin-bottom:10px;
+  }
+  .budget-list{list-style:none;margin:8px 0 0;padding:0;}
+  .budget-list li{
+    display:flex;justify-content:space-between;gap:12px;
+    font-size:13.5px;color:var(--text-main);padding:7px 0;border-top:1px solid var(--line);
+  }
+  .budget-list li:first-child{border-top:none;}
+  .budget-list span:last-child{font-weight:700;text-align:right;}
+  .key-card{
+    background:linear-gradient(160deg,var(--primary-soft) 0%,#fff 100%);
+    border:1px solid #D6E7FF;
+  }
+  .key-card p{font-size:14px;color:var(--text-main);font-weight:700;margin:0;}
+
   .btn-group{display:flex;flex-direction:column;gap:9px;margin-top:14px;}
   .btn{
     min-height:48px;border-radius:13px;cursor:pointer;
@@ -173,19 +198,6 @@
   .btn-soft:hover{background:#DDEBFF;}
   .btn svg{width:17px;height:17px;flex-shrink:0;}
 
-  /* 지도 안내 */
-  .info-list{list-style:none;padding:0;margin:14px 0 0;}
-  .info-list li{
-    font-size:13.5px;color:var(--text-sub);padding:8px 0 8px 26px;position:relative;
-    border-top:1px solid var(--line);
-  }
-  .info-list li:first-child{border-top:none;}
-  .info-list li::before{
-    content:"✓";position:absolute;left:0;top:8px;
-    color:var(--primary);font-weight:800;font-size:13px;
-  }
-
-  /* 플랜 B */
   .plan-b{
     background:var(--danger-soft);
     border:1px solid #FFD9D7;
@@ -197,7 +209,6 @@
   .btn-danger{background:#fff;color:var(--danger);border:1px solid #FFD0CE;}
   .btn-danger:hover{background:#FFF6F5;}
 
-  /* 체크리스트 */
   .check{
     display:flex;align-items:flex-start;gap:12px;
     padding:13px 4px;border-bottom:1px solid var(--line);cursor:pointer;
@@ -220,7 +231,6 @@
   .progress-fill{height:100%;width:0;background:var(--primary);border-radius:99px;transition:width .3s ease;}
   .progress-txt{font-size:12.5px;color:var(--text-sub);font-weight:600;margin-top:7px;}
 
-  /* 메모 */
   textarea{
     width:100%;min-height:150px;resize:vertical;
     border:1.5px solid var(--line);border-radius:14px;
@@ -233,7 +243,6 @@
   .save-state{font-size:12px;color:var(--text-light);margin-top:8px;height:16px;transition:color .2s;}
   .save-state.on{color:var(--primary);}
 
-  /* 주의 문구 */
   .footnote{
     font-size:12px;color:var(--text-light);text-align:center;
     line-height:1.7;padding:14px 20px 36px;
@@ -242,62 +251,58 @@
   @media (max-width:380px){
     .hero h1{font-size:23px;}
     .course-flow{font-size:14px;}
+    .plan-head{display:block;}
+    .plan-tag{display:inline-block;margin-top:8px;}
   }
 </style>
 </head>
 <body>
 <div class="app">
 
-  <!-- 1. 히어로 -->
   <header class="hero">
     <div class="date">2026.06.20 · FRI</div>
-    <h1>오늘의<br>서울대 미대 전시 루트</h1>
-    <p>디자인과·영상매체예술 전공 과제전/청구전 관람을 위한 하루 동선</p>
+    <h1>서울 전시 기록과<br>성수 작업 계획</h1>
+    <p>서울대 미대 전시를 보고, 다음 날 성수에서 기록과 방학 계획을 정리합니다.</p>
     <div class="chips">
       <span class="chip">프로젝트 보드</span>
       <span class="chip">캡션</span>
-      <span class="chip">설치 미술</span>
-      <span class="chip">영상 매체</span>
-      <span class="chip">디자인 리서치</span>
+      <span class="chip">설치 방식</span>
+      <span class="chip">리서치 정리</span>
     </div>
     <button class="btn-hero" onclick="document.getElementById('timeline').scrollIntoView({behavior:'smooth'})">
-      오늘 일정 보기 ↓
+      일정 보기 ↓
     </button>
   </header>
 
-  <!-- 2. 코스 요약 -->
   <section class="card">
     <div class="eyebrow">TODAY'S COURSE</div>
-    <h2>오늘의 코스</h2>
+    <h2>서울 일정 요약</h2>
     <div class="course-flow">
-      <span class="step">서울대 미대 전시</span>
+      <span class="step">서울대 전시</span>
       <span class="arrow">→</span>
       <span class="step">샤로수길 식사</span>
       <span class="arrow">→</span>
-      <span class="step">카페 리서치 정리</span>
+      <span class="step">성수 작업</span>
     </div>
     <div class="note">
-      비가 오거나 컨디션이 좋지 않으면 <b>서울대 전시만 보고 마무리</b>해도 괜찮습니다.
+      핵심은 많이 돌아다니는 것보다 <b>본 것을 기록으로 바꾸는 것</b>입니다.
     </div>
   </section>
 
-  <!-- 3. 타임라인 -->
-  <div class="section-title" id="timeline">오늘의 일정</div>
+  <div class="section-title" id="timeline">DAY 1 · 서울대 미대 전시</div>
   <div class="timeline">
 
-    <!-- 13:00~16:00 -->
     <div class="tl-item">
       <div class="tl-card">
         <span class="tl-time">13:00 ~ 16:00</span>
         <h3>서울대학교 미술대학 전시 관람</h3>
         <div class="tl-label">이동</div>
-        <p class="move">서울대입구역 3번 출구 → 5511 / 5513번 버스 → '미대입구' 하차 → 49동 일대</p>
-        <div class="tl-label">관람 포인트</div>
+        <p class="move">서울대입구역 3번 출구 → 5511 / 5513번 버스 → 미대입구 하차 → 49동 일대</p>
+        <div class="tl-label">볼 것</div>
         <ul class="points">
           <li>프로젝트 보드 구성</li>
           <li>작품 캡션 문장</li>
-          <li>설치 방식</li>
-          <li>영상 매체 표현 방식</li>
+          <li>설치 방식과 영상 표현</li>
           <li>디자인 리서치 정리 방식</li>
         </ul>
         <div class="btn-group">
@@ -314,13 +319,12 @@
       </div>
     </div>
 
-    <!-- 16:30~17:30 -->
     <div class="tl-item">
       <div class="tl-card">
         <span class="tl-time">16:30 ~ 17:30</span>
         <h3>샤로수길 식사</h3>
         <div class="rec">텐동 요츠야 <span>· 추천</span></div>
-        <p>전시 관람 후 든든하게 먹기 좋은 텐동 맛집입니다.</p>
+        <p>전시 후 든든하게 먹고, 사진과 메모를 가볍게 정리합니다.</p>
         <div class="btn-group">
           <a class="btn btn-primary" target="_blank" rel="noopener"
              href="https://www.google.com/maps/search/?api=1&query=텐동%20요츠야%20샤로수길">
@@ -335,13 +339,12 @@
       </div>
     </div>
 
-    <!-- 17:30 이후 -->
     <div class="tl-item">
       <div class="tl-card">
         <span class="tl-time">17:30 이후</span>
         <h3>카페 휴식 &amp; 리서치 정리</h3>
         <div class="rec">오후의과일 <span>· 추천</span></div>
-        <p>수플레 팬케이크, 빈티지한 분위기. 전시 사진과 아이디어 정리하기 좋은 카페입니다.</p>
+        <p>좋았던 전시, 참고할 표현, 내 작업에 가져올 점을 짧게 남깁니다.</p>
         <div class="btn-group">
           <a class="btn btn-primary" target="_blank" rel="noopener"
              href="https://www.google.com/maps/search/?api=1&query=오후의과일%20샤로수길">
@@ -358,37 +361,106 @@
 
   </div>
 
-  <!-- 4. 지도 안내 -->
-  <section class="card">
-    <div class="eyebrow">HOW MAPS WORK</div>
-    <h2>지도 연결 방식</h2>
-    <p class="sub">별도의 지도 API 없이, 구글 지도 앱 또는 브라우저로 바로 연결되는 버튼형 지도 방식을 사용합니다.</p>
-    <ul class="info-list">
-      <li>API 키 불필요</li>
-      <li>모바일에서 구글 지도 앱으로 바로 이동</li>
-      <li>정적 HTML 파일에서도 안정적으로 작동</li>
-      <li>단일 HTML 웹 / GitHub Pages 배포에 적합</li>
-    </ul>
+  <section class="card day2-intro">
+    <div class="eyebrow">DAY 2 · SEONGSU WORK DAY</div>
+    <h2>성수 카페 작업 계획</h2>
+    <p class="sub">어제 서울대 미대 전시에서 본 내용을 정리하고, 학기 마무리와 방학 계획을 세우는 날. 오늘은 성수에서 먹고, 쉬고, 노트북 작업을 합니다.</p>
+
+    <div class="plan-grid">
+      <article class="plan-card">
+        <div class="plan-head">
+          <h3>이동 경로</h3>
+          <span class="plan-tag">25~30분</span>
+        </div>
+        <p class="route-line">천호역 → 잠실역 환승 → 성수역 4번 출구</p>
+        <ul class="points">
+          <li>8호선 모란 방면 탑승, 잠실역에서 2호선 환승</li>
+          <li>잠실나루, 강변, 건대입구 방향으로 이동</li>
+          <li>목적지: 포유성수, 서울 성동구 연무장길 41-26 1층</li>
+        </ul>
+      </article>
+
+      <article class="plan-card">
+        <div class="plan-head">
+          <h3>포유성수</h3>
+          <span class="plan-tag">13:00 ~ 14:20</span>
+        </div>
+        <p class="plan-meta">베트남 음식과 푸딩 밀크티로 작업 전 에너지 채우기.</p>
+        <ul class="points">
+          <li>추천: 쌀국수 + 포유 푸딩 밀크티</li>
+          <li>가볍게: 분짜 또는 짜조 + 푸딩 밀크티</li>
+          <li>오래 작업보다 점심과 음료 중심</li>
+          <li>예상 비용: 약 20,000~30,000원</li>
+        </ul>
+      </article>
+
+      <article class="plan-card">
+        <div class="plan-head">
+          <h3>성수 작업 카페</h3>
+          <span class="plan-tag">14:30 ~ 16:30</span>
+        </div>
+        <p class="plan-meta">서울대 전시 기록과 대학원 준비 계획을 문서로 남깁니다.</p>
+        <ul class="points">
+          <li>1순위: 디플랫 성수</li>
+          <li>대안: 포어플랜</li>
+          <li>작업 시간: 1시간 30분~2시간</li>
+          <li>추가 예산: 음료 5,000~8,000원</li>
+        </ul>
+      </article>
+
+      <article class="plan-card">
+        <div class="plan-head">
+          <h3>오늘의 노트북 작업</h3>
+          <span class="plan-tag">정리</span>
+        </div>
+        <ul class="points">
+          <li>전시에서 기억나는 프로젝트 3개</li>
+          <li>보드 구성, 캡션, 설치 방식, 리서치 흐름</li>
+          <li>이번 학기 회고: 얻은 것, 부족한 것, 보완점</li>
+          <li>방학 할 일 5개: 포트폴리오, 졸작, 교수 리서치, 토익, 외부활동</li>
+          <li>7월 첫째 주 실행 계획</li>
+        </ul>
+      </article>
+
+      <article class="plan-card">
+        <div class="plan-head">
+          <h3>예상 예산</h3>
+          <span class="plan-tag">30,000~40,000원대</span>
+        </div>
+        <ul class="budget-list">
+          <li><span>교통비 왕복</span><span>약 3,100원 이상</span></li>
+          <li><span>포유성수 식사 + 음료</span><span>20,000~30,000원</span></li>
+          <li><span>작업 카페 음료</span><span>5,000~8,000원</span></li>
+          <li><span>총예산</span><span>가볍게 30,000원대 / 보통 40,000원대</span></li>
+        </ul>
+      </article>
+
+      <article class="plan-card key-card">
+        <div class="plan-head">
+          <h3>오늘의 핵심</h3>
+          <span class="plan-tag">Focus</span>
+        </div>
+        <p>더 많이 보는 날이 아니라, 어제 본 것을 내 것으로 만드는 날. 전시 기록을 대학원 준비 자료로 바꾸고, 방학 할 일을 5개 이하로 정리합니다.</p>
+      </article>
+    </div>
   </section>
 
-  <!-- 5. 플랜 B -->
   <section class="plan-b">
     <div class="eyebrow">PLAN B</div>
     <h2>컨디션이 안 좋을 때</h2>
-    <p>비가 많이 오거나 체력이 떨어지면 샤로수길 일정은 생략하고, 서울대 전시만 본 뒤 바로 귀가 또는 친척집으로 이동합니다.</p>
+    <p>비가 많이 오거나 체력이 떨어지면 전시만 보고 귀가하거나, 성수 작업은 1시간만 진행합니다.</p>
     <div class="btn-group">
       <a class="btn btn-danger" target="_blank" rel="noopener"
          href="https://www.google.com/maps/search/?api=1&query=서울대입구역">
         서울대입구역 길찾기
       </a>
       <a class="btn btn-danger" target="_blank" rel="noopener"
-         href="https://www.google.com/maps/search/?api=1&query=서울대학교%20미술대학%20버스정류장">
-        가까운 버스정류장 검색
+         href="https://www.google.com/maps/search/?api=1&query=성수역">
+        성수역 검색
       </a>
     </div>
   </section>
 
-  <!-- 6. 체크리스트 -->
   <section class="card">
     <div class="eyebrow">CHECKLIST</div>
     <h2>관람 체크리스트</h2>
@@ -399,16 +471,14 @@
     <div id="checklist"></div>
   </section>
 
-  <!-- 7. 메모 -->
   <section class="card">
     <div class="eyebrow">RESEARCH NOTE</div>
     <h2>오늘의 리서치 메모</h2>
-    <p class="sub" style="margin-bottom:14px;">좋았던 전시 · 참고할 표현 방식 · 내 작업 적용점 · 다시 찾아볼 키워드</p>
+    <p class="sub" style="margin-bottom:14px;">좋았던 전시, 참고할 표현 방식, 내 작업 적용점, 다시 찾아볼 키워드</p>
     <textarea id="memo" placeholder="· 좋았던 전시:&#10;· 참고하고 싶은 표현 방식:&#10;· 내 작업에 적용할 점:&#10;· 나중에 다시 찾아볼 키워드:"></textarea>
     <div class="save-state" id="saveState"></div>
   </section>
 
-  <!-- 8. 주의 문구 -->
   <p class="footnote">
     전시 운영시간, 식당·카페 영업시간, 휴무 여부는 방문 전 한 번 더 확인해주세요.
   </p>
@@ -416,7 +486,6 @@
 </div>
 
 <script>
-  // ── 체크리스트 ──
   const items = [
     "마음에 드는 프로젝트 보드 촬영",
     "캡션 문장 구조 기록",
@@ -453,7 +522,6 @@
   });
   updateProgress();
 
-  // ── 메모 ──
   const MEMO_KEY = "snu_art_memo_v1";
   const memo = document.getElementById("memo");
   const state = document.getElementById("saveState");
