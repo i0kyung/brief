@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>DAY 2 · 성수 카페 작업 계획</title>
+<title>2일차 성수 카페 작업 루트</title>
 <style>
   :root{
     --primary:#007AFF;
@@ -16,12 +16,15 @@
     --text-sub:#667085;
     --text-light:#98A2B3;
     --line:#E5EAF0;
+    --danger-soft:#FFF1F0;
+    --danger:#E5484D;
     --radius-xl:24px;
     --radius-lg:18px;
     --shadow-soft:0 12px 30px rgba(15,23,42,.08);
   }
 
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
   body{
     margin:0;
     background:var(--background);
@@ -34,45 +37,70 @@
   .hero{
     background:linear-gradient(160deg,var(--primary) 0%,var(--primary-strong) 100%);
     color:#fff;border-radius:0 0 var(--radius-xl) var(--radius-xl);
-    margin:0 -18px 22px;padding:26px 26px 30px;
+    margin:0 -18px 22px;padding:54px 26px 30px;
     box-shadow:0 18px 40px rgba(0,100,255,.22);
   }
-  .back-link{display:inline-flex;align-items:center;gap:6px;color:#fff;text-decoration:none;font-size:13px;font-weight:700;opacity:.9;margin-bottom:24px;}
-  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.6px;color:var(--primary);text-transform:uppercase;margin-bottom:8px;}
-  .hero .eyebrow{color:#fff;opacity:.86;}
+  .hero .date{font-size:14px;font-weight:600;letter-spacing:.4px;opacity:.85;margin-bottom:10px;}
   .hero h1{font-size:26px;font-weight:800;line-height:1.3;margin:0 0 12px;letter-spacing:-.4px;}
-  .hero p{font-size:14.5px;opacity:.92;margin:0;}
+  .hero p{font-size:14.5px;opacity:.92;margin:0 0 18px;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;}
+  .chip{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:12.5px;font-weight:600;padding:7px 12px;border-radius:999px;backdrop-filter:blur(4px);}
+  .btn-hero{width:100%;min-height:50px;background:#fff;color:var(--primary-strong);border:none;border-radius:14px;font-size:16px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:transform .12s ease,box-shadow .12s ease;text-decoration:none;}
+  .btn-hero:hover{box-shadow:0 8px 18px rgba(0,0,0,.16);}
+  .btn-hero:active{transform:scale(.97);}
+  .hero-link{display:inline-flex;color:#fff;text-decoration:none;font-size:13px;font-weight:700;opacity:.9;margin-top:14px;}
   .card{background:var(--surface);border-radius:var(--radius-xl);box-shadow:var(--shadow-soft);padding:22px 20px;margin-bottom:18px;}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.6px;color:var(--primary);text-transform:uppercase;margin-bottom:8px;}
   .card h2{font-size:19px;font-weight:800;margin:0 0 6px;letter-spacing:-.3px;}
-  .card h3{font-size:17px;font-weight:800;margin:0 0 8px;letter-spacing:-.2px;}
-  .sub{font-size:14px;color:var(--text-sub);margin:0;}
-  .route-flow{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:14.5px;font-weight:700;margin-top:14px;}
-  .route-flow .step{background:var(--surface-blue);color:var(--primary-strong);padding:8px 12px;border-radius:12px;}
-  .route-flow .arrow{color:var(--text-light);font-weight:600;}
-  .timeline{display:grid;gap:14px;margin-top:12px;}
-  .plan-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px;}
-  .time-label{flex-shrink:0;display:inline-block;font-size:12.5px;font-weight:700;color:var(--primary-strong);background:var(--primary-soft);padding:4px 10px;border-radius:8px;}
-  .plan-meta{font-size:13.5px;color:var(--text-sub);margin:0 0 10px;}
+  .card .sub{font-size:14px;color:var(--text-sub);margin:0;}
+  .course-flow{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:15px;font-weight:700;margin:14px 0 14px;}
+  .course-flow .step{background:var(--surface-blue);color:var(--primary-strong);padding:8px 13px;border-radius:12px;}
+  .course-flow .arrow{color:var(--text-light);font-weight:600;}
+  .note{background:var(--primary-soft);border-radius:14px;padding:12px 14px;font-size:13.5px;color:var(--text-sub);}
+  .note b{color:var(--primary-strong);}
+  .section-title{font-size:14px;font-weight:800;color:var(--text-sub);letter-spacing:.3px;margin:30px 4px 14px;}
+  .timeline{position:relative;padding-left:8px;}
+  .tl-item{position:relative;padding:0 0 6px 28px;}
+  .tl-item::before{content:"";position:absolute;left:5px;top:7px;width:11px;height:11px;border-radius:50%;background:var(--primary);border:3px solid var(--surface);box-shadow:0 0 0 2px var(--primary-soft);z-index:2;}
+  .tl-item:not(:last-child)::after{content:"";position:absolute;left:10px;top:16px;bottom:-12px;width:2px;background:var(--line);}
+  .tl-card{background:var(--surface);border-radius:var(--radius-lg);box-shadow:var(--shadow-soft);padding:18px 17px;margin-bottom:18px;}
+  .tl-time{display:inline-block;font-size:12.5px;font-weight:700;color:var(--primary-strong);background:var(--primary-soft);padding:4px 10px;border-radius:8px;margin-bottom:9px;}
+  .tl-card h3{font-size:17px;font-weight:800;margin:0 0 8px;letter-spacing:-.2px;}
+  .tl-label{font-size:12px;font-weight:700;color:var(--text-light);margin:12px 0 5px;}
+  .tl-card p{font-size:13.5px;color:var(--text-sub);margin:0;}
   .points{list-style:none;padding:0;margin:5px 0 0;}
   .points li{font-size:13.5px;color:var(--text-main);padding:5px 0 5px 20px;position:relative;}
   .points li::before{content:"";position:absolute;left:2px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--primary);}
-  .budget-list{list-style:none;margin:8px 0 0;padding:0;}
+  .rec{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--text-main);background:var(--surface-blue);padding:7px 12px;border-radius:10px;margin:4px 0 8px;}
+  .rec span{font-size:12px;font-weight:600;color:var(--primary-strong);}
+  .highlight{font-weight:800;color:var(--primary-strong);}
+  .budget-list{list-style:none;margin:14px 0 0;padding:0;}
   .budget-list li{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;color:var(--text-main);padding:8px 0;border-top:1px solid var(--line);}
   .budget-list li:first-child{border-top:none;}
   .budget-list span:last-child{font-weight:700;text-align:right;}
-  .key-card{background:linear-gradient(160deg,var(--primary-soft) 0%,#fff 100%);border:1px solid #D6E7FF;}
-  .key-card p{font-size:14px;color:var(--text-main);font-weight:700;margin:0;}
-  .highlight{font-weight:800;color:var(--primary-strong);}
   .btn-group{display:flex;flex-direction:column;gap:9px;margin-top:14px;}
-  .btn{min-height:48px;border-radius:13px;cursor:pointer;font-size:14.5px;font-weight:700;text-decoration:none;display:flex;align-items:center;justify-content:center;transition:transform .12s ease,filter .12s ease,background .12s ease;border:none;}
+  .btn{min-height:48px;border-radius:13px;cursor:pointer;font-size:14.5px;font-weight:700;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:7px;transition:transform .12s ease,filter .12s ease,background .12s ease;border:none;}
   .btn:active{transform:scale(.97);}
+  .btn-primary{background:var(--primary);color:#fff;}
+  .btn-primary:hover{filter:brightness(.95);}
   .btn-soft{background:var(--primary-soft);color:var(--primary-strong);}
   .btn-soft:hover{background:#DDEBFF;}
-  .footnote{font-size:12px;color:var(--text-light);text-align:center;line-height:1.7;padding:10px 20px 36px;}
+  .plan-b{background:var(--danger-soft);border:1px solid #FFD9D7;border-radius:var(--radius-xl);padding:22px 20px;margin-bottom:18px;}
+  .plan-b .eyebrow{color:var(--danger);}
+  .plan-b h2{font-size:18px;font-weight:800;margin:0 0 8px;}
+  .plan-b p{font-size:13.5px;color:#7A4A4A;margin:0;}
+  .check{display:flex;align-items:flex-start;gap:12px;padding:13px 4px;border-bottom:1px solid var(--line);user-select:none;}
+  .check:last-child{border-bottom:none;}
+  .box{width:24px;height:24px;border-radius:8px;border:2px solid var(--line);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;background:#fff;}
+  .box svg{width:13px;height:13px;}
+  .check-text{font-size:14.5px;color:var(--text-main);padding-top:2px;}
+  textarea{width:100%;min-height:150px;resize:vertical;border:1.5px solid var(--line);border-radius:14px;padding:14px;font-size:14.5px;font-family:inherit;color:var(--text-main);background:var(--surface-blue);line-height:1.6;outline:none;transition:border-color .15s ease;}
+  textarea:focus{border-color:var(--primary);background:#fff;}
+  textarea::placeholder{color:var(--text-light);}
+  .footnote{font-size:12px;color:var(--text-light);text-align:center;line-height:1.7;padding:14px 20px 36px;}
   @media (max-width:380px){
     .hero h1{font-size:23px;}
-    .plan-head{display:block;}
-    .time-label{margin-top:8px;}
+    .course-flow{font-size:14px;}
     .budget-list li{display:block;}
     .budget-list span:last-child{display:block;text-align:left;margin-top:2px;}
   }
@@ -80,127 +108,138 @@
 </head>
 <body>
 <div class="app">
+
   <header class="hero">
-    <a class="back-link" href="./index.html">← DAY 1 계획으로 돌아가기</a>
-    <div class="eyebrow">DAY 2 · SEONGSU WORK DAY</div>
-    <h1>성수 카페 작업 계획</h1>
-    <p>전시 기록을 정리하고, 성수에서 식사·노트북 작업·짧은 산책까지 마무리하는 하루.</p>
+    <div class="date">2026.06.21 · SAT</div>
+    <h1>2일차<br>성수 카페 작업 루트</h1>
+    <p>어제 서울대 미대 전시와 샤로수길 공간 경험을 정리하고, 성수에서 노트북 작업과 짐 보관, 서울역 귀가까지 마무리하는 하루.</p>
+    <div class="chips">
+      <span class="chip">성수</span>
+      <span class="chip">포유성수</span>
+      <span class="chip">레필로소피</span>
+      <span class="chip">대학원 준비</span>
+      <span class="chip">짐 보관</span>
+      <span class="chip">서울역 21:58</span>
+    </div>
+    <button class="btn-hero" onclick="document.getElementById('today-plan').scrollIntoView({behavior:'smooth'})">오늘 일정 보기 ↓</button>
+    <a class="hero-link" href="./index.html">← DAY 1 계획으로 돌아가기</a>
   </header>
+
+  <section class="card">
+    <div class="eyebrow">TODAY'S COURSE</div>
+    <h2>오늘의 코스</h2>
+    <div class="course-flow">
+      <span class="step">성수역</span><span class="arrow">→</span>
+      <span class="step">짐 보관</span><span class="arrow">→</span>
+      <span class="step">포유성수</span><span class="arrow">→</span>
+      <span class="step">레필로소피 작업</span><span class="arrow">→</span>
+      <span class="step">성수/건대 산책</span><span class="arrow">→</span>
+      <span class="step">서울역 21:58 기차</span>
+    </div>
+    <div class="note">오늘은 더 많이 돌아다니는 날이 아니라, <b>어제 본 것을 내 것으로 정리하는 날</b>입니다.</div>
+  </section>
 
   <section class="card" id="yesterday-review">
     <div class="eyebrow">YESTERDAY REVIEW</div>
     <h2>어제 기록</h2>
-    <div class="route-flow">
+    <div class="course-flow">
       <span class="step">서울대 미대 전시</span><span class="arrow">→</span>
       <span class="step">샤로수빈티지</span><span class="arrow">→</span>
       <span class="step">오후의과일</span><span class="arrow">→</span>
       <span class="step">페르마타</span>
     </div>
-    <p class="sub" style="margin-top:14px;">서울대학교 미술대학 전시에서 도시 풍경과 실내 공간을 다룬 회화 작업을 관람했다. 작품 배치, 캡션, 작은 연작 구성 방식을 보며 졸업작품과 포트폴리오 구성에 참고할 지점을 기록했다. 이후 샤로수길의 24시간 빈티지샵 ‘샤로수빈티지’를 둘러보고, 카페 ‘오후의과일’에서 생과일 수플레 팬케이크를 먹었다. 저녁에는 라이브 음악 공간 ‘페르마타(Fermata)’에서 연어 크림 파스타 계열 메뉴와 함께 기타, 드럼, 피아노가 있는 무대의 라이브 음악을 감상했다.</p>
+    <p class="sub">서울대학교 미술대학 전시에서 도시 풍경과 실내 공간을 다룬 회화 작업을 관람했다. 작품 배치, 캡션, 작은 연작 구성 방식을 보며 졸업작품과 포트폴리오 구성에 참고할 지점을 기록했다. 이후 샤로수길의 24시간 빈티지샵 ‘샤로수빈티지’를 둘러보고, 카페 ‘오후의과일’에서 생과일 수플레 팬케이크를 먹었다. 저녁에는 라이브 음악 공간 ‘페르마타(Fermata)’에서 연어 크림 파스타 계열 메뉴와 함께 기타, 드럼, 피아노가 있는 무대의 라이브 음악을 감상했다.</p>
   </section>
 
-  <section class="card">
-    <div class="eyebrow">TODAY'S ROUTE</div>
-    <h2>오늘의 루트</h2>
-    <div class="route-flow">
-      <span class="step">성수역</span><span class="arrow">→</span>
-      <span class="step">짐 보관</span><span class="arrow">→</span>
-      <span class="step">포유성수</span><span class="arrow">→</span>
-      <span class="step">레필로소피</span><span class="arrow">→</span>
-      <span class="step">서울역 21:58</span>
-    </div>
-  </section>
-
-  <section id="today-plan">
-    <div class="eyebrow">TODAY PLAN</div>
-    <div class="timeline">
-      <article class="card">
-        <div class="plan-head">
-          <h3>성수역 도착 및 짐 보관</h3>
-          <span class="time-label">13:40</span>
-        </div>
+  <div class="section-title" id="today-plan">TODAY PLAN · 오늘의 일정</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-card">
+        <span class="tl-time">13:40</span>
+        <h3>성수역 도착 및 짐 보관</h3>
         <ul class="points">
           <li>성수역 도착 후 물품보관함 또는 짐 보관 서비스를 확인한다.</li>
-          <li>예상 비용: 약 3,000~4,000원</li>
+          <li>예상 비용은 약 3,000~4,000원.</li>
           <li>성수역 보관이 어렵다면 건대입구역 또는 서울역 보관을 대안으로 고려한다.</li>
           <li>작은 가방에는 휴대폰, 지갑, 보조배터리, 이어폰, 기차표/신분증만 남긴다.</li>
         </ul>
-      </article>
+      </div>
+    </div>
 
-      <article class="card">
-        <div class="plan-head">
-          <h3>포유성수 방문 및 식사</h3>
-          <span class="time-label">14:00</span>
-        </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <span class="tl-time">14:00</span>
+        <h3>포유성수 방문 및 식사</h3>
         <ul class="points">
-          <li>성수역에서 도보 약 5분 이동</li>
-          <li>대표 메뉴: 쌀국수</li>
-          <li>함께 먹어볼 메뉴: 푸딩 밀크티 또는 베트남식 음료</li>
-          <li>작업 전 식사와 에너지 충전 목적</li>
+          <li>성수역에서 도보 약 5분 이동.</li>
+          <li>대표 메뉴는 쌀국수.</li>
+          <li>함께 먹어볼 메뉴는 푸딩 밀크티 또는 베트남식 음료.</li>
+          <li>작업 전 식사와 에너지 충전 목적.</li>
         </ul>
-      </article>
+      </div>
+    </div>
 
-      <article class="card">
-        <div class="plan-head">
-          <h3>카페 레필로소피 노트북 작업</h3>
-          <span class="time-label">15:00 - 18:00</span>
-        </div>
-        <p class="plan-meta">대학원 준비 계획 정리, 어제 전시 인사이트 기록, 블로그 글 초안 작성.</p>
+    <div class="tl-item">
+      <div class="tl-card">
+        <span class="tl-time">15:00 ~ 18:00</span>
+        <h3>레필로소피 노트북 작업</h3>
+        <p>대학원 준비 계획 정리, 어제 전시 인사이트 기록, 블로그 글 초안 작성.</p>
+        <div class="tl-label">작업 결과물</div>
         <ul class="points">
-          <li>오래 머무르기보다 2~3시간 집중 작업</li>
           <li>서울대 전시 관람 기록</li>
           <li>오후의과일/페르마타 방문 기록</li>
           <li>이번 학기 회고</li>
           <li>방학 할 일 5개</li>
           <li>7월 첫째 주 실행 계획</li>
         </ul>
-      </article>
+      </div>
+    </div>
 
-      <article class="card">
-        <div class="plan-head">
-          <h3>성수·건대입구 자유 산책 및 힐링</h3>
-          <span class="time-label">18:00 - 20:30</span>
-        </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <span class="tl-time">18:00 ~ 20:30</span>
+        <h3>성수·건대입구 자유 산책</h3>
         <ul class="points">
           <li>성수 편집샵, 팝업, 소품샵, 서울숲 주변을 가볍게 둘러본다.</li>
           <li>사람이 많거나 지치면 건대입구역 근처로 이동해 짧게 구경한다.</li>
           <li>많이 돌아다니기보다 짐을 줄인 상태로 서울 마지막 시간을 가볍게 보내는 시간.</li>
         </ul>
-      </article>
+      </div>
+    </div>
 
-      <article class="card">
-        <div class="plan-head">
-          <h3>성수역 출발</h3>
-          <span class="time-label">20:30</span>
-        </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <span class="tl-time">20:30</span>
+        <h3>성수역 출발</h3>
         <ul class="points">
           <li>맡긴 짐을 찾고 서울역 이동을 시작한다.</li>
           <li>성수역에서 2호선 탑승 후 1호선으로 환승해 서울역으로 이동한다.</li>
           <li><span class="highlight">20:30 이동 시작</span></li>
         </ul>
-      </article>
+      </div>
+    </div>
 
-      <article class="card">
-        <div class="plan-head">
-          <h3>서울역 도착 및 탑승 준비</h3>
-          <span class="time-label">21:20</span>
-        </div>
+    <div class="tl-item">
+      <div class="tl-card">
+        <span class="tl-time">21:20</span>
+        <h3>서울역 도착 및 탑승 준비</h3>
         <ul class="points">
-          <li>서울역 도착 목표 시간</li>
+          <li>서울역 도착 목표 시간.</li>
           <li>화장실, 물 구매, 플랫폼 확인까지 여유를 둔다.</li>
           <li><span class="highlight">21:20 서울역 도착 목표</span></li>
         </ul>
-      </article>
-
-      <article class="card key-card">
-        <div class="plan-head">
-          <h3>서울역 출발 기차 탑승</h3>
-          <span class="time-label">21:58</span>
-        </div>
-        <p><span class="highlight">21:58 서울역 기차</span></p>
-      </article>
+      </div>
     </div>
-  </section>
+
+    <div class="tl-item">
+      <div class="tl-card">
+        <span class="tl-time">21:58</span>
+        <h3>서울역 출발 기차 탑승</h3>
+        <div class="rec">21:58 서울역 기차 <span>· 가장 중요</span></div>
+        <p><span class="highlight">21:58 서울역 기차 탑승.</span></p>
+      </div>
+    </div>
+  </div>
 
   <section class="card">
     <div class="eyebrow">BUDGET</div>
@@ -215,17 +254,36 @@
     </ul>
   </section>
 
-  <section class="card key-card">
-    <div class="eyebrow">FOCUS</div>
-    <h2>오늘의 기준</h2>
-    <p>오늘은 더 많이 보는 날이 아니라, 어제 본 것을 내 것으로 만드는 날. 서울대 전시 기록을 대학원 준비 자료로 바꾸고, 노트북 작업 후에는 짐을 맡긴 뒤 가볍게 성수나 건대를 둘러본다. 20:30에는 서울역으로 이동을 시작하고, 21:58 기차를 여유 있게 탄다.</p>
+  <section class="plan-b">
+    <div class="eyebrow">PLAN B</div>
+    <h2>짐 보관이 어려울 때</h2>
+    <p>성수역 물품보관함이 어렵다면 건대입구역 또는 서울역 보관을 대안으로 둔다. 보관이 어렵거나 체력이 떨어지면 산책 시간을 줄이고 서울역으로 일찍 이동한다.</p>
+  </section>
+
+  <section class="card">
+    <div class="eyebrow">CHECKLIST</div>
+    <h2>오늘 체크리스트</h2>
+    <div class="check"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span class="check-text">포유성수 방문</span></div>
+    <div class="check"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span class="check-text">레필로소피에서 노트북 작업</span></div>
+    <div class="check"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span class="check-text">서울대 전시 기록 정리</span></div>
+    <div class="check"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span class="check-text">방학 할 일 5개 작성</span></div>
+    <div class="check"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span class="check-text">짐 보관 후 가볍게 이동</span></div>
+    <div class="check"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span class="check-text">20:30 서울역 이동 시작</span></div>
+  </section>
+
+  <section class="card">
+    <div class="eyebrow">RESEARCH NOTE</div>
+    <h2>오늘의 리서치 메모</h2>
+    <p class="sub" style="margin-bottom:14px;">서울대 전시에서 본 보드 구성, 캡션, 연작 방식, 샤로수길 공간 경험, 성수 카페 작업 내용을 대학원 준비 자료로 정리한다.</p>
+    <textarea placeholder="· 서울대 전시 기록:&#10;· 샤로수길 공간 경험:&#10;· 성수 카페 작업 내용:&#10;· 대학원 준비 자료로 옮길 것:"></textarea>
   </section>
 
   <div class="btn-group">
-    <a class="btn btn-soft" href="./index.html">DAY 1 계획으로 돌아가기</a>
+    <a class="btn btn-soft" href="./index.html">← DAY 1 계획으로 돌아가기</a>
   </div>
 
   <p class="footnote">식당·카페 영업시간, 물품보관함 위치, 기차 출발 시간은 이동 전 한 번 더 확인해주세요.</p>
+
 </div>
 </body>
 </html>
