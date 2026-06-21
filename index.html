@@ -275,7 +275,7 @@
   const MEMO_KEY = "snu_art_memo_v1";
   const memo = document.getElementById("memo");
   const state = document.getElementById("saveState");
-  memo.value = localStorage.getItem(MEM_KEY) || "";
+  memo.value = localStorage.getItem(MEMO_KEY) || "";
   let t;
   memo.addEventListener("input", () => {
     localStorage.setItem(MEMO_KEY, memo.value);
